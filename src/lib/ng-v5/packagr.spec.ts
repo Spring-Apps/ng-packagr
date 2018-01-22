@@ -1,7 +1,8 @@
 import * as ng from '@angular/compiler-cli';
 import { expect } from 'chai';
-import { provideProject, PROJECT_TOKEN, ngPackagr, NgPackagr } from './packagr';
-import { DEFAULT_TS_CONFIG_TOKEN } from '../ts/default-tsconfig';
+import { ngPackagr, NgPackagr } from './packagr';
+import { provideProject, PROJECT_TOKEN } from './project.di';
+import { DEFAULT_TS_CONFIG_TOKEN } from './entry-point/ts/init-tsconfig.di';
 
 describe(`ngPackagr()`, () => {
   let packager: NgPackagr;
@@ -35,6 +36,7 @@ describe(`ngPackagr()`, () => {
       const mockConfig = ({ project: 'foo' } as any) as ng.ParsedConfiguration;
       expect(packager.withTsConfig(mockConfig)).to.equal(packager);
     });
+
     it(`should override the default tsconfig provider`, () => {
       const mockConfig = ({ project: 'foo' } as any) as ng.ParsedConfiguration;
       const providers = packager

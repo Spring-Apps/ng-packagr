@@ -8,7 +8,12 @@ export interface CliArguments {
 }
 
 /** @stable */
+<<<<<<< HEAD
 export const build: Command<CliArguments, void> = opts =>
   ngPackagr()
+=======
+export const build: Command<CliArguments, void> =
+  (opts) => ngPackagr()
+>>>>>>> feat: le jardin, a broccoli-inspired rewrite
     .forProject(opts.project)
     .build();
