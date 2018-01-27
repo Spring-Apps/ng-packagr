@@ -9,6 +9,7 @@ import { TsConfig } from '../ts/tsconfig';
 import { DEFAULT_TS_CONFIG_TOKEN } from './entry-point/ts/init-tsconfig.di';
 import { ENTRY_POINT_TRANSFORM, ENTRY_POINT_PROVIDERS } from './entry-point.di';
 import { PACKAGE_TRANSFORM } from './package.di';
+import { provideProject } from './project.di';
 
 export class NgPackagr {
   private kickOffTransform: InjectionToken<Transform> = PACKAGE_TRANSFORM.provide;

@@ -14,8 +14,12 @@ export type TsConfig = ng.ParsedConfiguration;
 /**
  * Reads the default TypeScript configuration.
  */
-export function readDefaultTsConfig(): TsConfig {
-  return ng.readConfiguration(path.resolve(__dirname, 'conf', 'tsconfig.ngc.json'));
+export function readDefaultTsConfig(fileName?: string): TsConfig {
+  if (!fileName) {
+    fileName = path.resolve(__dirname, 'conf', 'tsconfig.ngc.json');
+  }
+
+  return ng.readConfiguration(fileName);
 }
 
 /**
